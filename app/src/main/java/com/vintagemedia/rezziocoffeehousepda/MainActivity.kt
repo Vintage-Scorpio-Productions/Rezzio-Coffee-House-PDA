@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.vintagemedia.rezziocoffeehousepda.devUtilities.DefaultPlaceholder
 import com.vintagemedia.rezziocoffeehousepda.ui.theme.RezzioCoffeeHousePDATheme
 
 class MainActivity : ComponentActivity() {
@@ -35,37 +36,13 @@ class MainActivity : ComponentActivity() {
                     // below is for defaulting to landscape
                     val activity = (LocalContext.current as Activity)
                     activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                    // from utils
                     DefaultPlaceholder()
                 }
             }
         }
     }
 }
-
-@Composable
-fun DefaultPlaceholder() {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.LightGray)
-            .padding(1.dp)
-            .border(5.dp, MaterialTheme.colorScheme.primary, shape = RoundedCornerShape(5))
-        ,
-        contentAlignment = Alignment.Center
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxHeight()
-                .padding(5.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(text = "Placeholder")
-        }
-    }
-}
-
-
 
 @Preview(showBackground = true)
 @Composable
